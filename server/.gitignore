@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+build/
+dist/
+*.tgz
+
+# Dependency directories
+jspm_packages/
+
+# Environment files
+.env
+.env.*.local
+
+# IDE and editor folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Docker files
+docker-compose.override.yml
+
+# Tailwind CSS
+tailwind.config.js
+postcss.config.js
+
+# Misc
+*.pem
+*.key

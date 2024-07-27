@@ -1,0 +1,40 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+</head>
+
+<body>
+    <h1>Image Classification</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="image" id="uploadImage" />
+        <button type="submit">Upload Image</button>
+    </form>
+    <div id="result">
+        <p id="className"></p>
+        <p id="confidence"></p>
+    </div>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append('image', document.getElementById('uploadImage').files[0]);
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+
+            document.getElementById('className').textContent = `Class: ${result.className}`;
+            document.getElementById('confidence').textContent = `Confidence: ${result.confidence}%`;
+        });
+    </script>
+</body>
+
+</html>
